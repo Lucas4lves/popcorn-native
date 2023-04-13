@@ -7,15 +7,22 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { container, formContainer } = style;
+  const {
+    container,
+    formContainer,
+    imageContainer,
+    title,
+    loginTitle,
+    callToActionSign,
+  } = style;
   return (
     <SafeAreaView style={container}>
-        <View style={{flex: .5, justifyContent: 'center'}}>
-            <Image style={{width: '400px' , height: '50%'}} source={require('../assets/popcorn-logo.png')}  />
-        </View>
+      <View style={imageContainer}>
+        {/* <Image source={require("../assets/popcorn-logo.png")} /> */}
+      </View>
       <View style={formContainer}>
-        <View style={{ alignSelf: "flex-start"}}>
-          <Text style={{ fontWeight: "bold", fontSize: 28, color: '#F2BC57' }}>Login</Text>
+        <View style={title}>
+          <Text style={loginTitle}>Login</Text>
         </View>
         <InputField
           handleInput={setUsername}
@@ -28,10 +35,8 @@ const Login = () => {
           value={password}
           fieldName={"Password"}
         />
-        <ActionButton text={"Submit"}/>
-        <Text style={{marginTop: 14, alignSelf: 'center', color: 'white'}}>
-            Don't have an account? Sign Up
-        </Text>
+        <ActionButton text={"Submit"} />
+        <Text style={callToActionSign}>Don't have an account? Sign Up</Text>
       </View>
     </SafeAreaView>
   );
@@ -41,14 +46,27 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-start",
-    backgroundColor: '#17141C',
+    backgroundColor: "#17141C",
     alignItems: "center",
     gap: 4,
   },
   formContainer: {
     padding: 8,
-    width: '80%'
+    width: "80%",
   },
+  imageContainer: {
+    flex: 0.5,
+    justifyContent: "center",
+  },
+  title: {
+    alignSelf: "flex-start",
+  },
+  loginTitle: {
+    fontWeight: "bold",
+    fontSize: 28,
+    color: "#F2BC57",
+  },
+  callToActionSign: { marginTop: 14, alignSelf: "center", color: "white" },
 });
 
 export default Login;
